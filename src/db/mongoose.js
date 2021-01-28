@@ -15,7 +15,8 @@ const options = {
 };
 
 mongoose
-  .connect('mongodb://localhost:27017/easynote', options)
+
+  .connect('mongodb+srv://dbUser:dbUserPassword@cluster0.paawm.mongodb.net/easynote?retryWrites=true&w=majority', options)
   .then(() => {
     DEBUG('MongoDB is connected');
   })
