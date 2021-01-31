@@ -4,8 +4,12 @@ import { config } from 'dotenv';
 import passport from 'passport';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import debug from 'debug';
 import errorHandler from './middleware/errorHandler';
 import authRouter from './routes/auth.route';
+import speechRouter from './routes/speech.route';
+
+const DEBUG = debug('dev');
 
 config();
 
@@ -28,10 +32,13 @@ app.use(cookieParser());
 passport.initialize();
 
 app.use('/auth', authRouter);
+app.use('/speech', speechRouter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(errorHandler);
+
+DEBUG('TEsT');
 
 export default app;
