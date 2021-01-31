@@ -27,6 +27,11 @@ const userSchema = new mongoose.Schema({
     required: [true, 'password is required'],
     minlength: 8,
   },
+  profilePicture: {
+    type: String,
+    required: false,
+    minlength: 8,
+  },
 });
 
 userSchema.pre('save', async function validPassword(next) {

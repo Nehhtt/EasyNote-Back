@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import errorHandler from './middleware/errorHandler';
 import authRouter from './routes/auth.route';
+import profileRouter from './routes/profile.route';
 
 config();
 
@@ -28,6 +29,7 @@ app.use(cookieParser());
 passport.initialize();
 
 app.use('/auth', authRouter);
+app.use('/profile', profileRouter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
